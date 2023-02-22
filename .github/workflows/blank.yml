@@ -23,12 +23,17 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+
       - uses: actions/setup-python@v4 
         with:
           python-version: 'pypy3.8'
 
       - name: Create virtualenv
         run: |
-          ls
-
+          pip install virtualenv
+          virtualenv env
+          source env/bin/activate
+          pip install -r requirements.txt
+          pytest
         
