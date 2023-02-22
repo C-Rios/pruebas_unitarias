@@ -1,6 +1,9 @@
 def sumar(x,y):
     return x+y
 
+def restar(x,y):
+    return x - y
+
 def es_primo(n):
     for i in range(2,n):
         if (n%i) == 0:
